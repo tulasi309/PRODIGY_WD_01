@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Foodieee - Home</title>
+    <link rel="stylesheet" href="task-1-menu.html" />
+    <style>
+      /* Basic Reset */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Arial", sans-serif;
+        line-height: 1.6;
+        background-color: #f4f4f4;
+        color: #333;
+      }
+
+      nav {
+        background-color: #ff6600;
+        color: white;
+        padding: 0.5rem;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+      }
+
+      .navbar-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        font-size: 1.5rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+      }
+
+      .nav-links {
+        list-style-type: none;
+        display: flex;
+        gap: 1rem;
+      }
+
+      .nav-links li a {
+        color: white;
+        text-decoration: none;
+        padding: 0.5rem 1rem;
+        transition: background-color 0.3s;
+        border-radius: 5px;
+      }
+
+      .nav-links li a:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+      }
+      .hamburger-menu {
+        display: none;
+      }
+      @media (max-width: 768px) {
+        .hamburger-menu {
+          display: flex;
+        }
+        .navbar-container {
+          padding: 0 1rem;
+        }
+
+        .logo {
+          font-size: 1.2rem;
+        }
+
+        .nav-links {
+          flex-direction: column;
+          position: absolute;
+          top: 4rem;
+          right: 0;
+          background-color: #ff6600;
+          width: 50%;
+          max-width: 200px;
+          border-radius: 5px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+          display: none;
+        }
+
+        .nav-links.active {
+          display: flex;
+        }
+
+        .nav-links li {
+          text-align: center;
+          padding: 1rem 0;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .nav-links li:last-child {
+          border-bottom: none;
+        }
+
+        .nav-links li a {
+          width: 100%;
+          padding: 1rem;
+        }
+      }
+
+      main {
+        padding-top: 0;
+      }
+
+      .home-section {
+        text-align: center;
+        padding: 2rem;
+        background-image: url("C:\Users\user\Downloads\foodie.png");
+
+        background-size: cover;
+        background-position: center;
+        color: #000;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .home-section h1 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+      }
+
+      .home-section p {
+        font-size: 1.5rem;
+        margin-bottom: 2rem;
+        max-width: 600px;
+      }
+
+      .home-section .btn {
+        background-color: #ff6600;
+        color: white;
+        padding: 1rem 2rem;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+      }
+
+      .home-section .btn:hover {
+        background-color: #e65c00;
+      }
+
+      @media (max-width: 768px) {
+        .home-section h1 {
+          font-size: 2.5rem;
+        }
+
+        .home-section p {
+          font-size: 1.2rem;
+          padding: 0 1rem;
+        }
+      }
+
+      .intro-section {
+        padding: 4rem 2rem;
+        text-align: center;
+        background-color: #f4f4f4;
+      }
+
+      .intro-section h2 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .intro-section p {
+        font-size: 1.2rem;
+        max-width: 800px;
+        margin: 0 auto;
+        margin-bottom: 2rem;
+      }
+
+      .featured-dishes {
+        padding: 4rem 2rem;
+        background-color: #fff;
+        text-align: center;
+      }
+
+      .featured-dishes h2 {
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+      }
+
+      .dish {
+        display: inline-block;
+        margin: 1rem;
+        text-align: left;
+      }
+
+      .dish img {
+        width: 100%;
+        height: auto;
+        border-radius: 5px;
+      }
+
+      .dish h3 {
+        margin-top: 1rem;
+        font-size: 1.5rem;
+      }
+
+      .dish p {
+        font-size: 1rem;
+      }
+
+      @media (max-width: 768px) {
+        .dish {
+          width: 100%;
+        }
+      }
+
+      .footer {
+        background-color: #333;
+        color: white;
+        padding: 2rem 1rem;
+        text-align: center;
+      }
+
+      .footer .footer-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+
+      .footer .footer-section {
+        flex: 1;
+        min-width: 250px;
+        margin: 1rem;
+      }
+
+      .footer h3 {
+        margin-bottom: 1rem;
+      }
+
+      .footer p,
+      .footer a {
+        color: white;
+        margin-bottom: 0.5rem;
+        text-decoration: none;
+      }
+
+      .footer a:hover {
+        text-decoration: underline;
+      }
+
+      .footer .social-icons {
+        display: flex;
+        justify-content: center;
+        margin-top: 1rem;
+      }
+
+      .footer .social-icons a {
+        margin: 0 0.5rem;
+        color: white;
+        font-size: 1.5rem;
+      }
+
+      @media (max-width: 768px) {
+        .footer .footer-container {
+          flex-direction: column;
+          align-items: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="navbar-container">
+        <div class="logo">Foodie</div>
+        <ul class="nav-links">
+          <li><a href="task1.html">Home</a></li>
+          <li><a href="task-menu.html">Menu</a></li>
+          <li><a href="task-aboutus.html">About Us</a></li>
+          <li><a href="task-contact.html">Contact</a></li>
+        </ul>
+        <div class="hamburger-menu" onclick="toggleMenu()">
+          <svg viewBox="0 0 100 80" width="40" height="40">
+            <rect width="100" height="10" rx="8"></rect>
+            <rect y="30" width="100" height="10" rx="8"></rect>
+            <rect y="60" width="100" height="10" rx="8"></rect>
+          </svg>
+        </div>
+      </div>
+    </nav>
+
+    <main>
+      <section class="home-section">
+        <h1>Welcome to Foodieee</h1>
+        <p>
+          Uncover top recipes, food insights, and cooking advice to tantalize your taste buds.
+        </p>
+        <a href="task-menu.html" class="btn">Explore Our Menu</a>
+      </section>
+      <section class="intro-section">
+        <h2>About Us</h2>
+        <p>
+          At Foodieee, we believe that great food has the power to unite people. Our mission is to provide you with delectable recipes, insightful food articles, and expert cooking tips, ensuring every meal you create is unforgettable.
+        </p>
+      </section>
+      <section class="featured-dishes">
+        <h2>Featured Dishes</h2>
+        <div class="dish">
+          <img
+            src="C:\Users\user\Downloads\pasta.jfif"
+            alt="Dish 1"
+          />
+          <h3>Delicious Pasta</h3>
+          <p>
+            This pasta is made with fresh ingredients and a homemade sauce that
+            will tantalize your taste buds.
+          </p>
+        </div>
+        <div class="dish">
+          <img
+            src="C:\Users\user\Downloads\gb.jpg"
+            alt="Dish 2"
+          />
+          <h3>Gourmet Burger</h3>
+          <p>
+            Our gourmet burger is crafted with high-quality beef, fresh
+            vegetables, and a special sauce.
+          </p>
+        </div>
+        <div class="dish">
+          <img
+            src="C:\Users\user\Downloads\vegan-mayonnaise-sandwich.jpg"
+            alt="Dish 3"
+          />
+          <h3>Vegan Delight</h3>
+          <p>
+            Enjoy a healthy and tasty vegan meal that is both nutritious and
+            satisfying.
+          </p>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-section">
+          <h3>About Foodieee</h3>
+          <p>
+           Foodie is your ultimate destination for mouthwatering recipes, informative food articles, and expert cooking tips.
+          </p>
+        </div>
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <p><a href="task1.html">Home</a></p>
+          <p><a href="task-aboutus.html">About Us</a></p>
+          <p><a href="task-menu.html">Menu</a></p>
+          <p><a href="task-contact.html">Contact</a></p>
+        </div>
+        <div class="footer-section">
+          <h3>Contact Us</h3>
+          <p>Email: tnk@foodie30.com</p>
+          <p>Phone: (123) 345-9912</p>
+        </div>
+        <div class="footer-section social-icons">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+    </footer>
+    <script
+      src="https://kit.fontawesome.com/0fefa5e792.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- JavaScript for toggling the mobile menu -->
+    <script>
+      function toggleMenu() {
+        const navMenu = document.querySelector(".nav-links");
+        navMenu.classList.toggle("active");
+      }
+    </script>
+  </body>
+</html>

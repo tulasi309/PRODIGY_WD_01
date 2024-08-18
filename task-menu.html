@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Menu - Foodieee</title>
+    <style>
+      /* Basic Reset */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Arial", sans-serif;
+        line-height: 1.6;
+        background-color: #f4f4f4;
+        color: #333;
+      }
+
+      nav {
+        background-color: #ff6600;
+        color: white;
+        padding: 0.5rem;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+      }
+
+      .navbar-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        font-size: 1.5rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+      }
+
+      .nav-links {
+        list-style-type: none;
+        display: flex;
+        gap: 1rem;
+      }
+
+      .nav-links li a {
+        color: white;
+        text-decoration: none;
+        padding: 0.5rem 1rem;
+        transition: background-color 0.3s;
+        border-radius: 5px;
+      }
+
+      .nav-links li a:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+      }
+      .hamburger-menu {
+        display: none;
+      }
+      @media (max-width: 768px) {
+        .hamburger-menu {
+          display: flex;
+        }
+        .navbar-container {
+          padding: 0 1rem;
+        }
+
+        .logo {
+          font-size: 1.2rem;
+        }
+
+        .nav-links {
+          flex-direction: column;
+          position: absolute;
+          top: 4rem;
+          right: 0;
+          background-color: #ff6600;
+          width: 50%;
+          max-width: 200px;
+          border-radius: 5px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+          display: none;
+        }
+
+        .nav-links.active {
+          display: flex;
+        }
+
+        .nav-links li {
+          text-align: center;
+          padding: 1rem 0;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .nav-links li:last-child {
+          border-bottom: none;
+        }
+
+        .nav-links li a {
+          width: 100%;
+          padding: 1rem;
+        }
+      }
+      main {
+        padding: 2rem 1rem;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .menu-header {
+        text-align: center;
+        padding: 4rem 2rem;
+        background-color: #333;
+        color: white;
+      }
+
+      .menu-header h1 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+      }
+
+      .menu-header p {
+        font-size: 1.5rem;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .menu-section {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        padding: 2rem 0;
+      }
+
+      .menu-item {
+        width: 300px;
+        background-color: white;
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+      }
+
+      .menu-item img {
+        max-width: 100%;
+        border-radius: 5px;
+        margin-bottom: 1rem;
+      }
+
+      .menu-item h2 {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .menu-item p {
+        font-size: 1.2rem;
+        color: #666;
+        margin-bottom: 1rem;
+      }
+
+      .menu-item .price {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #ff6600;
+      }
+
+      @media (max-width: 768px) {
+        .menu-header h1 {
+          font-size: 2.5rem;
+        }
+
+        .menu-header p {
+          font-size: 1.2rem;
+          padding: 0 1rem;
+        }
+
+        .menu-item {
+          width: calc(100% - 2rem);
+          margin: 1rem;
+        }
+      }
+
+      .footer {
+        background-color: #333;
+        color: white;
+        padding: 2rem 1rem;
+        text-align: center;
+      }
+
+      .footer .footer-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+
+      .footer .footer-section {
+        flex: 1;
+        min-width: 250px;
+        margin: 1rem;
+      }
+
+      .footer h3 {
+        margin-bottom: 1rem;
+      }
+
+      .footer p,
+      .footer a {
+        color: white;
+        margin-bottom: 0.5rem;
+        text-decoration: none;
+      }
+
+      .footer a:hover {
+        text-decoration: underline;
+      }
+
+      .footer .social-icons {
+        display: flex;
+        justify-content: center;
+        margin-top: 1rem;
+      }
+
+      .footer .social-icons a {
+        margin: 0 0.5rem;
+        color: white;
+        font-size: 1.5rem;
+      }
+
+      @media (max-width: 768px) {
+        .footer .footer-container {
+          flex-direction: column;
+          align-items: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="navbar-container">
+        <div class="logo">Foodie</div>
+        <ul class="nav-links">
+          <li><a href="task1.html">Home</a></li>
+          <li><a href="task-menu.html">Menu</a></li>
+          <li><a href="task-aboutus.html">About Us</a></li>
+          <li><a href="task-contact.html">Contact</a></li>
+        </ul>
+        <div class="hamburger-menu" onclick="toggleMenu()">
+          <svg viewBox="0 0 100 80" width="40" height="40">
+            <rect width="100" height="10" rx="8"></rect>
+            <rect y="30" width="100" height="10" rx="8"></rect>
+            <rect y="60" width="100" height="10" rx="8"></rect>
+          </svg>
+        </div>
+      </div>
+    </nav>
+    <main>
+      <section id="menu" class="menu-header">
+        <h1>Our Menu</h1>
+        <p>Explore our delicious offerings crafted with love and expertise.</p>
+      </section>
+      <section class="menu-section">
+        <div class="menu-item">
+          <img
+            src="C:\Users\user\Downloads\briyani.jpg"
+          />
+          <h2>Briyani</h2>
+          <p>
+            a flavorful rice dish infused with spices, meat, or vegetables, loved worldwide for its richness
+
+          </p>
+          <p class="price">$9.99</p>
+        </div>
+        <div class="menu-item">
+          <img
+            src="C:\Users\user\Downloads\fish fry.jpg"
+            alt="Fish fry"
+          />
+          <h2></h2>
+          <p>
+           Fish fry is a popular dish featuring seasoned, battered fish fillets, deep-fried to golden perfection, often served with sides.
+          </p>
+          <p class="price">$12.99</p>
+        </div>
+        <div class="menu-item">
+          <img
+            src="https://lh3.googleusercontent.com/pw/AP1GczMKDreEHhOp67VnqjvtK7nfi9kpv839JPU4CX3r-5MHIsJfeC5eF5_g0QcFiudNPgFMddX8_d77N7lFzieERTTn2ULVwJ2HHbUeVTQ1DFbE9V1ba0ty2KQCa5ucZfP8C61bSWzAvM0bb_5IFnkJ3xpFjw=w560-h560-no-gm?authuser=2"
+            alt="Vegetarian Pizza"
+          />
+          <h2>Vegetarian Pizza</h2>
+          <p>
+            Freshly baked pizza topped with assorted vegetables and mozzarella
+            cheese.
+          </p>
+          <p class="price">$10.99</p>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-section">
+          <h3>About Foodie</h3>
+          <p>
+            Foodie is your go-to source for delicious recipes, food articles,
+            and cooking tips.
+          </p>
+        </div>
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <p><a href="task1.html">Home</a></p>
+          <p><a href="task-aboutus.html">About Us</a></p>
+          <p><a href="task-menu.html">Menu</a></p>
+          <p><a href="task-contact.html">Contact</a></p>
+        </div>
+        <div class="footer-section">
+          <h3>Contact Us</h3>
+          <p>Email: tnk@foodie30.com</p>
+          <p>Phone: (123) 345-9912</p>
+        </div>
+        <div class="footer-section social-icons">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+    </footer>
+    <script
+      src="https://kit.fontawesome.com/0fefa5e792.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

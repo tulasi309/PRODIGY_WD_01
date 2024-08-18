@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us - Foodie</title>
+    <style>
+      /* Basic Reset */
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Arial", sans-serif;
+        line-height: 1.6;
+        background-color: #f4f4f4;
+        color: #333;
+      }
+
+      nav {
+        background-color: #ff6600;
+        color: white;
+        padding: 0.5rem;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+      }
+
+      .navbar-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        font-size: 1.5rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+      }
+
+      .nav-links {
+        list-style-type: none;
+        display: flex;
+        gap: 1rem;
+      }
+
+      .nav-links li a {
+        color: white;
+        text-decoration: none;
+        padding: 0.5rem 1rem;
+        transition: background-color 0.3s;
+        border-radius: 5px;
+      }
+
+      .nav-links li a:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+      }
+      .hamburger-menu {
+        display: none;
+      }
+      @media (max-width: 768px) {
+        .hamburger-menu {
+          display: flex;
+        }
+        .navbar-container {
+          padding: 0 1rem;
+        }
+
+        .logo {
+          font-size: 1.2rem;
+        }
+
+        .nav-links {
+          flex-direction: column;
+          position: absolute;
+          top: 4rem;
+          right: 0;
+          background-color: #ff6600;
+          width: 50%;
+          max-width: 200px;
+          border-radius: 5px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+          display: none;
+        }
+
+        .nav-links.active {
+          display: flex;
+        }
+
+        .nav-links li {
+          text-align: center;
+          padding: 1rem 0;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .nav-links li:last-child {
+          border-bottom: none;
+        }
+
+        .nav-links li a {
+          width: 100%;
+          padding: 1rem;
+        }
+      }
+
+      main {
+        padding: 2rem 1rem;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .about-header {
+        text-align: center;
+        padding: 4rem 2rem;
+        background-color: #333;
+        color: white;
+      }
+
+      .about-header h1 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+      }
+
+      .about-header p {
+        font-size: 1.5rem;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .team-section {
+        padding: 4rem 2rem;
+        background-color: #f4f4f4;
+        text-align: center;
+      }
+
+      .team-section h2 {
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+      }
+
+      .team {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .team-member {
+        flex: 1 1 300px;
+        margin: 1rem;
+        background-color: white;
+        padding: 1rem;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+      }
+
+      .team-member img {
+        width: 100%;
+        border-radius: 50%;
+        margin-bottom: 1rem;
+      }
+
+      .team-member h3 {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .team-member p {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      @media (max-width: 768px) {
+        .about-header h1 {
+          font-size: 2.5rem;
+        }
+
+        .about-header p {
+          font-size: 1.2rem;
+          padding: 0 1rem;
+        }
+      }
+
+      .footer {
+        background-color: #333;
+        color: white;
+        padding: 2rem 1rem;
+        text-align: center;
+      }
+
+      .footer .footer-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+
+      .footer .footer-section {
+        flex: 1;
+        min-width: 250px;
+        margin: 1rem;
+      }
+
+      .footer h3 {
+        margin-bottom: 1rem;
+      }
+
+      .footer p,
+      .footer a {
+        color: white;
+        margin-bottom: 0.5rem;
+        text-decoration: none;
+      }
+
+      .footer a:hover {
+        text-decoration: underline;
+      }
+
+      .footer .social-icons {
+        display: flex;
+        justify-content: center;
+        margin-top: 1rem;
+      }
+
+      .footer .social-icons a {
+        margin: 0 0.5rem;
+        color: white;
+        font-size: 1.5rem;
+      }
+
+      @media (max-width: 768px) {
+        .footer .footer-container {
+          flex-direction: column;
+          align-items: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="navbar-container">
+        <div class="logo">Foodie</div>
+        <ul class="nav-links">
+          <li><a href="task1.html">Home</a></li>
+          <li><a href="task-menu.html">Menu</a></li>
+          <li><a href="task-aboutus.html">About Us</a></li>
+          <li><a href="task-contact.html">Contact</a></li>
+        </ul>
+        <div class="hamburger-menu" onclick="toggleMenu()">
+          <svg viewBox="0 0 100 80" width="40" height="40">
+            <rect width="100" height="10" rx="8"></rect>
+            <rect y="30" width="100" height="10" rx="8"></rect>
+            <rect y="60" width="100" height="10" rx="8"></rect>
+          </svg>
+        </div>
+      </div>
+    </nav>
+    <main>
+      <section class="about-header">
+        <h1>About Us</h1>
+        <p>
+          At Foodie, we believe in the power of good food to bring people
+          together. Our mission is to share delicious recipes, insightful food
+          articles, and expert cooking tips to help you make every meal
+          memorable.
+        </p>
+      </section>
+      <section class="team-section">
+        <h2>Meet Our Team</h2>
+        <div class="team">
+          <div class="team-member">
+            <img
+              src="C:\Users\user\Downloads\chef neha.jpg"
+            />
+            <h3>chef neha</h3>
+            <p>Head Chef</p>
+            <p>
+              A vegetarian chef, Shah was the first runner-up on Masterchef India.she co-founded Meraaki Kitchen & Cafe White Sage in Jaipur. Her style of cooking is an amalgamation of cuisines across the globe and in 2022 she exited the restaurant business.
+            </p>
+          </div>
+          <div class="team-member">
+            <img
+              src="C:\Users\user\Downloads\fod writer.jpg"
+            />
+            <h3> Anthony Michael</h3>
+            <p>Food Writer</p>
+            <p>
+              Anthony Michael Bourdain was born in Manhattan on June 25,1956. Anthony grew up living with both of his parents and described his childhood in one of his books
+            </p>
+          </div>
+          <div class="team-member">
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSh51nnNFv-1OGotmjyict01rF9FZoDkRBW5mfGsfpV2aHMg9gKJXCwC9uHdrYuLcwnqc4&usqp=CAU"
+            />
+            <h3>Emily Brown</h3>
+            <p>Nutrition Expert</p>
+            <p>
+              Emily ensures that all our recipes are not only delicious but also
+              nutritious. Her expertise helps you make healthier food choices.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-section">
+          <h3>About Foodie</h3>
+          <p>
+            Foodie is your go-to source for delicious recipes, food articles,
+            and cooking tips.
+          </p>
+        </div>
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <p><a href="task-1.html">Home</a></p>
+          <p><a href="task-1-aboutus.html">About Us</a></p>
+          <p><a href="task-1-menu.html">Menu</a></p>
+          <p><a href="task-1-contact.html">Contact</a></p>
+        </div>
+        <div class="footer-section">
+          <h3>Contact Us</h3>
+          <p>Email: tnk@foodie30.com</p>
+          <p>Phone: (123) 345-9912</p>
+        </div>
+        <div class="footer-section social-icons">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+    </footer>
+    <script
+      src="https://kit.fontawesome.com/0fefa5e792.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
